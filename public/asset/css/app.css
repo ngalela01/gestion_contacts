@@ -1,0 +1,14 @@
+
+body{
+  background-image: url("../img/fond.jpg");
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

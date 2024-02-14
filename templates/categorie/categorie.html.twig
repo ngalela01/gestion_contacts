@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}categorie{% endblock %}
+
+{% block body %}
+<div class="col-sm-12 col-md-12 col-lg-4 col-xl-3 m-3">
+        <div class="card mb-3">
+            <h4 class="card-title text-center">{{categorie.libelle}} </h4>
+            <img style="height: auto; max-width: 200px; display: block;" src="{{categorie.image}}" class=" mx-auto my-3" alt="...">
+    
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> {{categorie.description}}</li>
+                
+            </ul>
+                
+          <a href="{{path('categories')}}" class="btn btn-primary text-center ">Voir toute les catégories </a>
+          
+        </div>
+    </div>
+
+
+    
+
+
+
+{% endblock %}

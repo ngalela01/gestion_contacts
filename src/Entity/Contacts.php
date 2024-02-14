@@ -33,7 +33,7 @@ class Contacts
     private $rue;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $cp;
 
@@ -43,19 +43,19 @@ class Contacts
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $avatar;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $mail;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $sexe;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $avatar;
 
     public function getId(): ?int
     {
@@ -98,12 +98,12 @@ class Contacts
         return $this;
     }
 
-    public function getCp(): ?int
+    public function getCp(): ?string
     {
         return $this->cp;
     }
 
-    public function setCp(?int $cp): self
+    public function setCp(string $cp): self
     {
         $this->cp = $cp;
 
@@ -118,18 +118,6 @@ class Contacts
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getAvatar(): ?string
-    {
-        return $this->avatar;
-    }
-
-    public function setAvatar(?string $avatar): self
-    {
-        $this->avatar = $avatar;
 
         return $this;
     }
@@ -151,9 +139,21 @@ class Contacts
         return $this->sexe;
     }
 
-    public function setSexe(?int $sexe): self
+    public function setSexe(int $sexe): self
     {
         $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
