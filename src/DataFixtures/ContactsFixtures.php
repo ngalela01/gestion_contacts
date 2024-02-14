@@ -18,40 +18,36 @@ class ContactsFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
         $categories=["Privé","Sport","Professionnel"];
+        $faker= Factory::create('fr_FR');  // pour generer des donnees aléatoirement en francais
 
+        $categorie=new Categorie();
+        $categorie->setLibelle("Sport")
+                      ->setimage("https://picsum.photos/id/73/200/300")
+                      ->setDescription($faker->sentence((50)));
 
-
-        
-        $professionnel=new Categorie();
-        $professionnel->setLibelle("Sport")
-                        ->setimage("https://picsum.photos/id/73/200/300")
-                        ->setDescription("il s'agit de la categorie professionnel");
-
-                        $manager->persist(($professionnel));
+        $manager->persist(($categorie));
                         
 
 
-        $sport=new Categorie();
-        $sport->setLibelle("professionnel")
-            ->setimage("https://picsum.photos/id/5/200/300")
-            ->setDescription("il s'agit de la categorie sport");
-            $manager->persist(($sport));
+        $categorie=new Categorie();
+            $categorie->setLibelle("professionnel")
+                      ->setimage("https://picsum.photos/id/5/200/300")
+                      ->setDescription($faker->sentence((50)));
+            $manager->persist($categorie);
 
             
-        $prive=new Categorie();
-        $prive->setLibelle("Privé")
+        $categorie=new Categorie();
+        $categorie->setLibelle("Privé")
               ->setimage("https://picsum.photos/id/342/200/300")
-              ->setDescription("il s'agit de la categorie privée");
+              ->setDescription($faker->sentence((50)));
 
-              $manager->persist(($prive));
+              $manager->persist(($categorie));
               
 
 
         
-        $faker= Factory::create('fr_FR');  // pour generer des donnees aléatoirement en francais
         $genres=["male","female"];
-        
-        
+               
         for($i=0;$i<100;$i++)
         {
                 $sexe=mt_rand(0,1);
@@ -69,18 +65,8 @@ class ContactsFixtures extends Fixture
                     ->setMail($faker->email())
                     ->setSexe($sexe)
                     ->setAvatar("https:/randomuser.me/api/portraits/" .$type . "/$i.jpg");
-
-
-
-
-
-
-
-
-
-
+            $manager->persist($contact);
                     
-                    $manager->persist(($contact));
         }
                  
                  $manager->flush();
