@@ -6,7 +6,7 @@
 <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3 m-3">
         <div class="card mb-3">
             <h4 class="card-title text-center">{{categorie.libelle}} </h4>
-            <img style="height: auto; max-width: 200px; display: block;" src="{{categorie.image}}" class=" mx-auto my-3" alt="...">
+            <img style="height: auto; max-width: 200px; display: block;" src="{{ asset(categorie.image) }}" class=" mx-auto my-3" alt="...">
     
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"> {{categorie.description}}</li>

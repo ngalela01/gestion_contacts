@@ -19,30 +19,32 @@ class ContactsFixtures extends Fixture
         // $manager->persist($product);
         $categories=["Privé","Sport","Professionnel"];
         $faker= Factory::create('fr_FR');  // pour generer des donnees aléatoirement en francais
+        $categories=[];
 
+        
         $categorie=new Categorie();
         $categorie->setLibelle("Sport")
-                      ->setimage("https://picsum.photos/id/73/200/300")
+                      ->setimage("/asset/img/img_categorie/img_sport.jpg")
                       ->setDescription($faker->sentence((50)));
 
         $manager->persist(($categorie));
-                        
+        $categories[]=$categorie;              
 
 
         $categorie=new Categorie();
             $categorie->setLibelle("professionnel")
-                      ->setimage("https://picsum.photos/id/5/200/300")
+                      ->setimage("/asset/img/img_categorie/img_professionnel.jpg")
                       ->setDescription($faker->sentence((50)));
             $manager->persist($categorie);
-
+            $categories[]=$categorie; 
             
         $categorie=new Categorie();
         $categorie->setLibelle("Privé")
-              ->setimage("https://picsum.photos/id/342/200/300")
+              ->setimage("/asset/img/img_categorie/img_prive.jpg")
               ->setDescription($faker->sentence((50)));
 
               $manager->persist(($categorie));
-              
+              $categories[]=$categorie; 
 
 
         
@@ -64,6 +66,7 @@ class ContactsFixtures extends Fixture
                     ->setVille($faker->city())
                     ->setMail($faker->email())
                     ->setSexe($sexe)
+                    ->setCategorie($categories[mt_rand(0,2)])
                     ->setAvatar("https:/randomuser.me/api/portraits/" .$type . "/$i.jpg");
             $manager->persist($contact);
                     

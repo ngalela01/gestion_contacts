@@ -6,14 +6,5 @@
 {% block body %}
 <h1 class="text-center pt-5">Bienvenue sur mon application de gestion
 </h1>
-<ul>
-{% for lenom in lesNoms %}
-<li>{{lenom|upper}}</li>
-{% endfor %}
-{% if age >18%}
-Vous etes majeur
-{% else %}
-Vous etes mineur
-{% endif %}
-</ul>
+
 {% endblock %}

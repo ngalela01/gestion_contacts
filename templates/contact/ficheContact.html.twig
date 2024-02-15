@@ -2,33 +2,36 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Fiche lecontact{% endblock %}
+{% block title %}Fiche contact{% endblock %}
 
 {% block body %}
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
         <div class="card mb-3">
             <h4 class="card-title text-center">{{lecontact.nom}} {{lecontact.prenom}}</h4>
-            <img style="height: auto; max-width: 200px; display: block;" src="{{lecontact.avatar}}" class="avatar mx-auto my-3" alt="image avatar">
- 
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Rue : {{lecontact.rue}}</li>
-                <li class="list-group-item">Code postal : {{lecontact.cp}}</li>
-                <li class="list-group-item">Ville : {{lecontact.ville}}</li>
-                <li class="list-group-item">Email : {{lecontact.mail}}</li>
-                <li class="list-group-item">
+            <img style="height: auto; max-width: 200px; display: block;" src="{{lecontact.avatar}}" class=" mx-auto my-3" alt="...">
+    
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Rue : {{lecontact.rue}}</li>
+                    <li class="list-group-item">Code postal : {{lecontact.cp}}</li>
+                    <li class="list-group-item">Ville : {{lecontact.ville}}</li>
+                    <li class="list-group-item">Email : {{lecontact.mail}}</li>
+                    <li class="list-group-item">
                     {% if lecontact.sexe==0 %}
                     <span class='badge text-bg-info'>Homme</span>
                     {% else %}
-                        <span class='badge text-bg-warning'>Femme</span>
+                    <span class='badge text-bg-warning'>Femme</span>
                     {% endif %}
-                </li>
-            </ul>
-    
-            <div class="card-body">
-                <a href="{{path('contacts')}}">Revenir à la liste</a>
-            </div>
-        </div>
+                    </li>
+
+                    <li class="list-group-item"><a href="{{path('categorie',{'id':lecontact.categorie.id})}}">Voir categorie</a></li>
+                </ul>
+            
+        
+                        <div class="card-body">
+                            <a href="{{path('contacts')}}" class="btn btn-primary text-center ">Détail </a>
+                        </div>
+        </div>        
     </div>
 
 </div>
