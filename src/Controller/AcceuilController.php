@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AcceuilController extends AbstractController
 {
     /**
-     * @Route("/", name="app_acceuil", methods={"GET"})
+     * @Route("/", name="acceuil", methods={"GET"})
      */
     public function index(): Response
     {   $age=17;
